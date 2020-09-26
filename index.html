@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jokempô</title>
+    <script src="./script.js"></script>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./img/scissors.png">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="popover"]').popover();
+        });
+    </script>
+</head>
+
+<body>
+    <header class="mb-5">
+        <nav class="navbar navbar-dark">
+            <h1 class="mb-0 navbar-brand" href="#">
+                <img src="./img/scissors.png" height="24" width="24" class="d-inline-block align-top">
+                Pedra, papel e tesoura
+            </h1>
+            <a href="#" data-toggle="popover" title="Instruções"
+                data-content="Pedra ganha da tesoura (quebrando-a). Papel ganha da pedra (embrulhando-a). Tesoura ganha do papel (cortando-o).">
+                <svg height="24" width="24" viewBox="0 0 16 16" class="bi bi-question-circle-fill" fill="#fff"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033a.237.237 0 0 1-.24-.247C5.35 4.091 6.737 3.5 8.005 3.5c1.396 0 2.672.73 2.672 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.105a.25.25 0 0 1-.25.25h-.81a.25.25 0 0 1-.25-.246l-.004-.217c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.803 0-1.253.478-1.342 1.134-.018.137-.128.25-.266.25h-.825zm2.325 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z" />
+                </svg>
+            </a>
+        </nav>
+    </header>
+    <main class="container">
+        <div class="row row-cols-sm-1 row-cols-md-3 row-cols-lg-3 justify-content-around align-items-center">
+
+            <!--Jogador-->
+            <div class="col-sm-10 col-md-4 col-lg-3 text-center py-5 bg-white mb-3" id="player">
+
+                <div class="d-inline-block align-self-center mb-2">
+                    <div class="player-icon d-flex justify-content-center rounded-circle text-light">
+                        <p class="align-self-center h3 m-0">JG</p>
+                    </div>
+                </div>
+                <p class="h4">Jogador</p>
+
+                <img id="playerHand" class="mt-3" src="img/think.png">
+
+            </div>
+
+            <!--Painel de Jogo-->
+            <div class="col-sm-10 col-md-3 col-lg-3 my-5">
+
+                <select id="playerChoice" onchange="player.choose()" class="d-block mx-auto mb-3">
+                    <option value="none" disabled selected>Selecione uma opção</option>
+                    <option value="rock">Pedra</option>
+                    <option value="paper">Papel</option>
+                    <option value="scissors">Tesoura</option>
+                </select>
+
+                <button type="button" onclick="game.processValues()"
+                    class="d-block mx-auto btn btn-danger mb-2">Jogar</button>
+            </div>
+
+            <!--Computador-->
+            <div class="col-sm-10 col-md-4 col-lg-3 text-center py-5 bg-white mb-3" id="pc">
+
+                <div class="d-inline-block align-self-center mb-2">
+                    <div class="player-icon d-flex justify-content-center rounded-circle text-light">
+                        <p class="align-self-center h3 m-0">PC</p>
+                    </div>
+                </div>
+                <p class="h4">Computador</p>
+
+                <img id="pcHand" class="mt-3" src="img/think.png">
+
+            </div>
+
+        </div>
+
+        </div>
+    </main>
+    <footer class="text-light text-center container-fluid mt-5 pb-1 pt-3">
+        <a href="https://pt.wikipedia.org/wiki/Pedra,_papel_e_tesoura" target="_blank"
+            class="text-decoration-none text-light">
+            <p>Sobre o jogo</p>
+        </a>
+        <a href="https://t.me/lcgds" class="text-decoration-none text-light">
+            <p>Feedback</p>
+        </a>
+        <p>Feito com ♥ por Luiz</p>
+    </footer>
+</body>
+
+</html>

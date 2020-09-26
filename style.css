@@ -1,0 +1,37 @@
+@media only screen and (min-device-width: 777px) and (min-device-height: 400px) {
+    footer {
+        position: absolute;
+        bottom: 0;
+    }
+}
+
+header,
+footer {
+    background-color: #2b2024!important;
+}
+
+body {
+    background-color: #fbf9fa!important;
+}
+
+#player, 
+#pc {
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+#player img,
+#pc img {
+    width: 98px;
+}
+
+#pc img {
+    transform: rotate(180deg);
+    transform: scaleX(-1);
+}
+
+.player-icon {
+    width: 72px;
+    height: 72px;
+    background-color: #c82333;
+}
